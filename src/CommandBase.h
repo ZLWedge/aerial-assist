@@ -1,8 +1,7 @@
 #ifndef COMMAND_BASE_H
 #define COMMAND_BASE_H
 
-#include "Commands/Command.h"
-#include "Subsystems/ExampleSubsystem.h"
+#include "subsystems/ExampleSubsystem.h"
 #include "OI.h"
 
 
