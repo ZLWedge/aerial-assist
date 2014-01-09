@@ -21,6 +21,7 @@ macro (add_sources)
 endmacro()
 
 add_sources(Davros.cpp
+  CommandBase.cpp
   OI.cpp
 )
 add_subdirectory(commands)
