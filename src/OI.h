@@ -5,9 +5,12 @@
 
 class OI {
 private:
+	Joystick* joyDrv;
 
 public:
 	OI();
+	
+	Joystick* getJoyDrv();
 };
 
 #endif
