@@ -6,11 +6,16 @@
 class OI {
 private:
 	Joystick* joyDrv;
+	double applyDeadZone(double,double);
 
 public:
 	OI();
 	
 	Joystick* getJoyDrv();
+	double getJoyDrvX();
+	double getJoyDrvY();
+	double getJoyDrvZ();
+	double getJoyDrvThrottle();
 };
 
 #endif
