@@ -1,7 +1,7 @@
 #include "MeccanumDrive.h"
 #include "../Robotmap.h"
 
-MeccanumDrive::MeccanumDrive(){
+MeccanumDrive::MeccanumDrive():CommandBase("MeccanumDrive"){
 	Requires(chassis);
 }
 
