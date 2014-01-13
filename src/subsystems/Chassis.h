@@ -7,7 +7,7 @@ class Chassis: public Subsystem {
 	public:
 		Chassis();
 		~Chassis();
-		//void InitDefaultCommand();
+		void InitDefaultCommand();
 		void drive(double vX, double vY, double vR, double throttle);
 		
 		Victor* driveMotorA;

@@ -2,6 +2,7 @@
 
 #include "Chassis.h"
 #include "../Robotmap.h"
+#include "../commands/MeccanumDrive.h"
 
 Chassis::Chassis():Subsystem("Chassis"){
     driveMotorA = new Victor(MOTOR_A_PWM);
@@ -41,5 +42,8 @@ void Chassis::drive(double vX, double vY, double vZ, double throttle) {
     driveMotorD->Set(vMotor[MOTOR_D_PWM]);
 }
 
-
+void Chassis::InitDefaultCommand() {
+    SetDefaultCommand(new MeccanumDrive());
+}
+    
 
