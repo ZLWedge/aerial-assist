@@ -3,6 +3,7 @@
 
 #include "subsystems/ExampleSubsystem.h"
 #include "OI.h"
+#include "subsystems/Chassis.h"
 
 
 /**
@@ -16,7 +17,7 @@ public:
 	CommandBase();
 	static void init();
 	// Create a single static instance of all of your subsystems
-	static ExampleSubsystem *examplesubsystem;
+	static Chassis *chassis;
 	static OI *oi;
 };
 
