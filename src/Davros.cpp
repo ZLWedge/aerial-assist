@@ -15,6 +15,9 @@ private:
 		lw->AddActuator("Chassis", "Motor B", CommandBase::chassis->driveMotorB);
 		lw->AddActuator("Chassis", "Motor C", CommandBase::chassis->driveMotorC);
 		lw->AddActuator("Chassis", "Motor D", CommandBase::chassis->driveMotorD);
+        
+        SmartDashboard::PutData(Scheduler::GetInstance());
+        SmartDashboard::PutData(CommandBase::chassis);
 	}
 	
 	void AutonomousInit() {
@@ -30,7 +33,7 @@ private:
 		// teleop starts running. If you want the autonomous to 
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		autonomousCommand->Cancel();
+		//autonomousCommand->Cancel();
 	}
 	
 	void TeleopPeriodic() {
