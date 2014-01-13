@@ -7,21 +7,21 @@ private:
 	Command *autonomousCommand;
 	LiveWindow *lw;
 	
-	virtual void RobotInit() {
+	void RobotInit() {
 		CommandBase::init();
 		autonomousCommand = new ExampleCommand();
 		lw = LiveWindow::GetInstance();
 	}
 	
-	virtual void AutonomousInit() {
+	void AutonomousInit() {
 		autonomousCommand->Start();
 	}
 	
-	virtual void AutonomousPeriodic() {
+	void AutonomousPeriodic() {
 		Scheduler::GetInstance()->Run();
 	}
 	
-	virtual void TeleopInit() {
+	void TeleopInit() {
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to 
 		// continue until interrupted by another command, remove
@@ -29,11 +29,11 @@ private:
 		autonomousCommand->Cancel();
 	}
 	
-	virtual void TeleopPeriodic() {
+	void TeleopPeriodic() {
 		Scheduler::GetInstance()->Run();
 	}
 	
-	virtual void TestPeriodic() {
+	void TestPeriodic() {
 		lw->Run();
 	}
 };
