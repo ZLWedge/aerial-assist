@@ -1,12 +1,13 @@
 #include <math.h>
 
 #include "Chassis.h"
+#include "../Robotmap.h"
 
 Chassis::Chassis():Subsystem("Chassis"){
-    driveMotorA = new Victor(1);
-    driveMotorB = new Victor(2);
-    driveMotorC = new Victor(3);
-    driveMotorD = new Victor(4);
+    driveMotorA = new Victor(MOTOR_A_PWM);
+    driveMotorB = new Victor(MOTOR_B_PWM);
+    driveMotorC = new Victor(MOTOR_C_PWM);
+    driveMotorD = new Victor(MOTOR_D_PWM);
 
 }
 

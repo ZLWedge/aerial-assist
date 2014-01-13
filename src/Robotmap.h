@@ -19,4 +19,9 @@
 // #define RANGE_FINDER_PORT 1
 // #define RANGE_FINDER_MODULE 1
 
+#define MOTOR_A_PWM 1
+#define MOTOR_B_PWM 2
+#define MOTOR_C_PWM 3
+#define MOTOR_D_PWM 4
+
 #endif
