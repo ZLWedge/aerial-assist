@@ -1,5 +1,4 @@
 #include "WPILib.h"
-#include "commands/ExampleCommand.h"
 #include "CommandBase.h"
 
 class Davros : public IterativeRobot {
@@ -9,12 +8,17 @@ private:
 	
 	void RobotInit() {
 		CommandBase::init();
-		autonomousCommand = new ExampleCommand();
+		autonomousCommand = NULL;
 		lw = LiveWindow::GetInstance();
+		
+		lw->AddActuator("Chassis", "Motor A", CommandBase::chassis->driveMotorA);
+		lw->AddActuator("Chassis", "Motor B", CommandBase::chassis->driveMotorB);
+		lw->AddActuator("Chassis", "Motor C", CommandBase::chassis->driveMotorC);
+		lw->AddActuator("Chassis", "Motor D", CommandBase::chassis->driveMotorD);
 	}
 	
 	void AutonomousInit() {
-		autonomousCommand->Start();
+		//autonomousCommand->Start();
 	}
 	
 	void AutonomousPeriodic() {
