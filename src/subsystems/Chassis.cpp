@@ -40,6 +40,13 @@ void Chassis::drive(double vX, double vY, double vZ, double throttle) {
     driveMotorB->Set(vMotor[MOTOR_B_PWM]);
     driveMotorC->Set(vMotor[MOTOR_C_PWM]);
     driveMotorD->Set(vMotor[MOTOR_D_PWM]);
+    
+    // Put the values onto the SmartDashboard
+    SmartDashboard::PutNumber("Motor A", vMotor[MOTOR_A_PWM]);
+    SmartDashboard::PutNumber("Motor B", vMotor[MOTOR_B_PWM]);
+    SmartDashboard::PutNumber("Motor C", vMotor[MOTOR_C_PWM]);
+    SmartDashboard::PutNumber("Motor D", vMotor[MOTOR_D_PWM]);
+
 }
 
 void Chassis::InitDefaultCommand() {
