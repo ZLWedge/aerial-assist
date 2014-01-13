@@ -2,14 +2,25 @@
 #include "../Robotmap.h"
 
 MeccanumDrive::MeccanumDrive(){
-	//Requires(chassis);
+	Requires(chassis);
 }
 
 void MeccanumDrive::Initialize(){	
 }
 
 void MeccanumDrive::Execute(){
-	//chassis->drive(oi->getJoyDrvX(),oi->getJoyDrvY(),oi->getJoyDrvZ(),oi->getJoyDrvThrottle());
+    double x = oi->getJoyDrvX();
+    double y = oi->getJoyDrvY();
+    double z = oi->getJoyDrvZ();
+    double throttle = oi->getJoyDrvThrottle();
+   
+	chassis->drive(x, y, z, throttle);
+    
+    // Put the values onto the SmartDashboard
+    SmartDashboard::PutNumber("Joystick x", x);
+    SmartDashboard::PutNumber("Joystick y", y);
+    SmartDashboard::PutNumber("Joystick z", z);
+    SmartDashboard::PutNumber("Joystick throttle", throttle);
 }
 
 bool MeccanumDrive::IsFinished(){
