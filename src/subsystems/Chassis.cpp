@@ -35,10 +35,10 @@ void Chassis::drive(double vX, double vY, double vZ, double throttle) {
 	for (int i = 0; i < 4; ++i){
 		vMotor[i] = vMotor[i]/vmax*throttle; 
 	}
-	driveMotorA->Set(vMotor[0]);
-    driveMotorB->Set(vMotor[1]);
-    driveMotorC->Set(vMotor[2]);
-    driveMotorD->Set(vMotor[3]);
+	driveMotorA->Set(vMotor[MOTOR_A_PWM]);
+    driveMotorB->Set(vMotor[MOTOR_B_PWM]);
+    driveMotorC->Set(vMotor[MOTOR_C_PWM]);
+    driveMotorD->Set(vMotor[MOTOR_D_PWM]);
 }
 
 
