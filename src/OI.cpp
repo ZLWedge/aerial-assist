@@ -19,17 +19,17 @@ double OI :: applyDeadZone(double input, double deadZone){
 }
 
 double OI::getJoyDrvX(){
-	return applyDeadZone(joyDrv->GetX(), JOY_DRV_DEAD_X);
+	return -applyDeadZone(joyDrv->GetY(), JOY_DRV_DEAD_X);
 }
 
 double OI::getJoyDrvY(){
-	return applyDeadZone(joyDrv->GetY(), JOY_DRV_DEAD_Y);
+	return -applyDeadZone(joyDrv->GetX(), JOY_DRV_DEAD_Y);
 }
 
 double OI::getJoyDrvZ(){
-	return applyDeadZone(joyDrv->GetZ(), JOY_DRV_DEAD_Z);
+	return -applyDeadZone(joyDrv->GetZ(), JOY_DRV_DEAD_Z);
 }
 
 double OI::getJoyDrvThrottle(){
-	return applyDeadZone(joyDrv->GetThrottle(), JOY_DRV_DEAD_THROTTLE);
+	return -(joyDrv->GetTwist()-1.0)/2.0;
 }

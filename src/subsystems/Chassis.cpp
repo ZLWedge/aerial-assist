@@ -22,10 +22,10 @@ Chassis::~Chassis() {
 void Chassis::drive(double vX, double vY, double vZ, double throttle) {
 	double vMotor[4];
 	
-	vMotor[0] = vX + vY + vZ;
-	vMotor[1] = vX - vY + vZ;
-	vMotor[2] = -vX - vY + vZ;
-	vMotor[3] = -vX + vY + vZ;
+	vMotor[0] = vX - vY - vZ;
+	vMotor[1] = vX + vY - vZ;
+	vMotor[2] = -vX + vY - vZ;
+	vMotor[3] = -vX - vY - vZ;
 	
 	double vmax = 1.0;
 	for(int i = 0; i < 4; ++i){
@@ -36,16 +36,16 @@ void Chassis::drive(double vX, double vY, double vZ, double throttle) {
 	for (int i = 0; i < 4; ++i){
 		vMotor[i] = vMotor[i]/vmax*throttle; 
 	}
-	driveMotorA->Set(vMotor[MOTOR_A_PWM]);
-    driveMotorB->Set(vMotor[MOTOR_B_PWM]);
-    driveMotorC->Set(vMotor[MOTOR_C_PWM]);
-    driveMotorD->Set(vMotor[MOTOR_D_PWM]);
+	driveMotorA->Set(vMotor[0]);
+    driveMotorB->Set(vMotor[1]);
+    driveMotorC->Set(vMotor[2]);
+    driveMotorD->Set(vMotor[3]);
     
     // Put the values onto the SmartDashboard
-    SmartDashboard::PutNumber("Motor A", vMotor[MOTOR_A_PWM]);
-    SmartDashboard::PutNumber("Motor B", vMotor[MOTOR_B_PWM]);
-    SmartDashboard::PutNumber("Motor C", vMotor[MOTOR_C_PWM]);
-    SmartDashboard::PutNumber("Motor D", vMotor[MOTOR_D_PWM]);
+    SmartDashboard::PutNumber("Motor A", vMotor[0]);
+    SmartDashboard::PutNumber("Motor B", vMotor[1]);
+    SmartDashboard::PutNumber("Motor C", vMotor[2]);
+    SmartDashboard::PutNumber("Motor D", vMotor[3]);
 
 }
 
