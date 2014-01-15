@@ -4,6 +4,7 @@
 OI::OI() {
 	// Process operator interface input here.
 	joyDrv = new Joystick(1);
+	catchButton = new JoystickButton(joyDrv,CATCH_BUTTON);
 	
 }
 
