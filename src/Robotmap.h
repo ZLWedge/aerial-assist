@@ -29,7 +29,7 @@
 
 #define JOY_DRV_DEAD_X 0.05
 #define JOY_DRV_DEAD_Y 0.05
-#define JOY_DRV_DEAD_Z 0.05
+#define JOY_DRV_DEAD_Z 0.15
 
 #define CATCH_BUTTON 2
 
