@@ -31,4 +31,5 @@ void MeccanumDrive::End(){
 }
 
 void MeccanumDrive::Interrupted(){
+	chassis->drive (0,0,0,0);
 }	

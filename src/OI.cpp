@@ -1,10 +1,13 @@
 #include "OI.h"
 #include "Robotmap.h"
+#include "commands/CatchBall.h"
 
 OI::OI() {
 	// Process operator interface input here.
 	joyDrv = new Joystick(1);
 	catchButton = new JoystickButton(joyDrv,CATCH_BUTTON);
+	
+	catchButton->WhileHeld(new CatchBall());
 	
 }
 
