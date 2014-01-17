@@ -24,7 +24,7 @@
 #define MOTOR_C_PWM 3
 #define MOTOR_D_PWM 4
 
-#define BALL_VISION_IP "10.47.74.12"
+#define BALL_VISION_IP "10.47.74.42"
 #define BALL_VISION_PORT 4774
 
 #define JOY_DRV_DEAD_X 0.05

@@ -29,14 +29,16 @@ void CatchBall::Execute(){
 		//this code gets the data from the beagle bone and converts into the following 
 		// values so that the robot tracks and follows the ball
 		double x = strtod(line, &lastChar);
-		double y = strtod(lastChar, &lastChar);
-		double width = strtod(lastChar, NULL);
-		double throttle =1.0-0.5*width;
-		chassis->drive(-y,-x,0.0,throttle);
-		
+		if (x <= 1.0 && x >= -1.0) {
+			double y = strtod(lastChar, &lastChar);
+			double width = strtod(lastChar, NULL);
+			double throttle =1.0-0.5*width;
+			chassis->drive(-y,-x,0.0,throttle);
+		}
 		delete stream;
+	}
+	if (connector) {
 		delete connector;
-		
 	}
 }
 
