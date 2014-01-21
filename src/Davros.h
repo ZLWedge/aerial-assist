@@ -7,8 +7,10 @@ class Davros : public IterativeRobot {
     private:
         Command *autonomousCommand;
         LiveWindow *lw;
+        Gyro *gyro;
         
     public:
+		Davros();
         void RobotInit();
         void AutonomousInit();
         void AutonomousPeriodic();

@@ -1,16 +1,16 @@
 #include "CommandBase.h"
 
 #include "Davros.h"
+#include "Robotmap.h"
+
+Davros::Davros(): gyro(new Gyro(GYRO_PORT)) {
+}
 
 void Davros::RobotInit() {
     CommandBase::init();
     autonomousCommand = NULL;
+    //gyro = new Gyro(GYRO_PORT);
     lw = LiveWindow::GetInstance();
-    
-    lw->AddActuator("Chassis", "Motor A", CommandBase::chassis->driveMotorA);
-    lw->AddActuator("Chassis", "Motor B", CommandBase::chassis->driveMotorB);
-    lw->AddActuator("Chassis", "Motor C", CommandBase::chassis->driveMotorC);
-    lw->AddActuator("Chassis", "Motor D", CommandBase::chassis->driveMotorD);
     
     SmartDashboard::PutData(Scheduler::GetInstance());
     SmartDashboard::PutData(CommandBase::chassis);
@@ -18,6 +18,7 @@ void Davros::RobotInit() {
 
 void Davros::AutonomousInit() {
     //autonomousCommand->Start();
+    gyro->Reset();
 }
 
 void Davros::AutonomousPeriodic() {
@@ -30,10 +31,12 @@ void Davros::TeleopInit() {
     // continue until interrupted by another command, remove
     // this line or comment it out.
     //autonomousCommand->Cancel();
+    gyro->Reset();
 }
 
 void Davros::TeleopPeriodic() {
     Scheduler::GetInstance()->Run();
+    SmartDashboard::PutNumber("Gyro(deg)", gyro->GetAngle());
 }
 
 void Davros::TestPeriodic() {

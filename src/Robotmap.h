@@ -20,9 +20,9 @@
 // #define RANGE_FINDER_MODULE 1
 
 #define MOTOR_A_PWM 1
-#define MOTOR_B_PWM 2
+#define MOTOR_B_PWM 4
 #define MOTOR_C_PWM 3
-#define MOTOR_D_PWM 4
+#define MOTOR_D_PWM 2
 
 #define BALL_VISION_IP "10.47.74.42"
 #define BALL_VISION_PORT 4774
@@ -32,6 +32,8 @@
 #define JOY_DRV_DEAD_Z 0.15
 
 #define CATCH_BUTTON 2
+
+#define GYRO_PORT 1
 
 
 
