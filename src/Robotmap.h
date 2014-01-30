@@ -49,4 +49,6 @@
 #define ENCODER_C_REV false 
 #define ENCODER_D_REV false
 
+#define CHOPSTICK_MOTOR_PWM 9
+
 #endif
