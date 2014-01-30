@@ -3,6 +3,7 @@
 
 #include "OI.h"
 #include "subsystems/Chassis.h"
+#include "subsystems/Chopsticks.h"
 
 
 /**
@@ -17,6 +18,7 @@ public:
 	static void init();
 	// Create a single static instance of all of your subsystems
 	static Chassis *chassis;
+	static Chopsticks *chopsticks;
 	static OI *oi;
 };
 
