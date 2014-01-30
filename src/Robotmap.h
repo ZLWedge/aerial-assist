@@ -35,6 +35,18 @@
 
 #define GYRO_PORT 1
 
+#define ENCODER_A_1 1
+#define ENCODER_A_2 2
+#define ENCODER_B_1 3
+#define ENCODER_B_2 4
+#define ENCODER_C_1 5
+#define ENCODER_C_2 6
+#define ENCODER_D_1 7
+#define ENCODER_D_2 8
 
+#define ENCODER_A_REV false 
+#define ENCODER_B_REV false 
+#define ENCODER_C_REV false 
+#define ENCODER_D_REV false
 
 #endif
