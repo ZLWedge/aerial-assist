@@ -50,5 +50,6 @@
 #define ENCODER_D_REV false
 
 #define CHOPSTICK_MOTOR_PWM 9
+#define CHOPSTICKS_SPEED 0.5
 
 #endif
