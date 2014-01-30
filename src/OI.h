@@ -8,6 +8,7 @@ private:
 	Joystick* joyDrv;
 	Button* catchButton;
 	Button* chopsticksUpButton;
+	Button* chopsticksDownButton;
 	double applyDeadZone(double,double);
 
 public:

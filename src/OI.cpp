@@ -2,6 +2,7 @@
 #include "Robotmap.h"
 #include "commands/CatchBall.h"
 #include "commands/ChopsticksPickUp.h"
+#include "commands/ChopsticksPutDown.h"
 
 OI::OI() {
 	// Process operator interface input here.
@@ -12,6 +13,8 @@ OI::OI() {
 	
 	chopsticksUpButton = new JoystickButton(joyDrv,CHOPSTICKS_UP_BUTTON);
 	chopsticksUpButton->WhileHeld(new ChopsticksPickUp());
+	chopsticksDownButton = new JoystickButton(joyDrv,CHOPSTICKS_DOWN_BUTTON);
+	chopsticksDownButton->WhileHeld(new ChopsticksPutDown());
 }
 
 Joystick* OI::getJoyDrv() {
