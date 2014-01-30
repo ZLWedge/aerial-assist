@@ -7,6 +7,7 @@ class OI {
 private:
 	Joystick* joyDrv;
 	Button* catchButton;
+	Button* chopsticksUpButton;
 	double applyDeadZone(double,double);
 
 public:

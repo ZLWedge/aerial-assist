@@ -51,5 +51,6 @@
 
 #define CHOPSTICK_MOTOR_PWM 9
 #define CHOPSTICKS_SPEED 0.5
+#define CHOPSTICKS_UP_BUTTON 5
 
 #endif
