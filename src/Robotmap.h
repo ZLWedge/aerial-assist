@@ -54,4 +54,10 @@
 #define CHOPSTICKS_UP_BUTTON 5
 #define CHOPSTICKS_DOWN_BUTTON 3
 
+#define RELEASE_MOTOR_PWM 8
+#define RELEASE_BUTTON 1
+
+#define WINCH_MOTOR_PWM 7
+#define WINCH_SPEED 0.5
+ 
 #endif

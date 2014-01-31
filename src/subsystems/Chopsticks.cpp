@@ -14,7 +14,3 @@ void Chopsticks::spin(double speed) {
 	motor->Set(speed); 
 	
 }
-
-
-    
-

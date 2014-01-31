@@ -4,6 +4,7 @@
 #include "OI.h"
 #include "subsystems/Chassis.h"
 #include "subsystems/Chopsticks.h"
+#include "subsystems/Catapult.h"
 
 
 /**

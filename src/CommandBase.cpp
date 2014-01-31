@@ -17,6 +17,5 @@ void CommandBase::init() {
 	// line should be repeated for each subsystem in the project.
 	chassis = new Chassis();
 	chopsticks = new Chopsticks();
-	
 	oi = new OI();
 }
