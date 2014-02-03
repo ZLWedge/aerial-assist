@@ -3,4 +3,5 @@ add_sources(
   CatchBall.cpp
   ChopsticksPickUp.cpp
   ChopsticksPutDown.cpp
+  ThrowBall.cpp
 )

@@ -21,6 +21,7 @@ public:
 	static Chassis *chassis;
 	static Chopsticks *chopsticks;
 	static OI *oi;
+	static Catapult *catapult;
 };
 
 #endif

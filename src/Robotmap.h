@@ -11,7 +11,7 @@
  
 // For example to map the left and right motors, you could define the
 // following variables to use with your drivetrain subsystem.
-// #define LEFTMOTOR 1
+// #define LEFTMOTOR 1Wait(2.0);
 // #define RIGHTMOTOR 2
 
 // If you are using multiple modules, make sure to define both the port
@@ -55,9 +55,14 @@
 #define CHOPSTICKS_DOWN_BUTTON 3
 
 #define RELEASE_MOTOR_PWM 8
-#define RELEASE_BUTTON 1
+#define THROW_BUTTON 1
+#define RELEASE_SPEED 1
+#define RELEASE_RELOAD 0.2
 
 #define WINCH_MOTOR_PWM 7
 #define WINCH_SPEED 0.5
+ 
+#define QR_LIMIT_SWITCH 9
+#define CATA_LIMIT_SWITCH 10
  
 #endif

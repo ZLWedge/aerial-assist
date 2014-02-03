@@ -3,6 +3,7 @@
 #include "commands/CatchBall.h"
 #include "commands/ChopsticksPickUp.h"
 #include "commands/ChopsticksPutDown.h"
+#include "commands/ThrowBall.h"
 
 OI::OI() {
 	// Process operator interface input here.
@@ -10,6 +11,9 @@ OI::OI() {
 	
 	catchButton = new JoystickButton(joyDrv,CATCH_BUTTON);
 	catchButton->WhileHeld(new CatchBall());
+	
+	throwButton = new JoystickButton(joyDrv,THROW_BUTTON);
+	throwButton->WhenPressed(new ThrowBall());
 	
 	chopsticksUpButton = new JoystickButton(joyDrv,CHOPSTICKS_UP_BUTTON);
 	chopsticksUpButton->WhileHeld(new ChopsticksPickUp());

@@ -7,12 +7,14 @@ class Catapult: public Subsystem {
 	public:
 		Catapult();
 		~Catapult();
-		void Release ();
-		void Winch (double speed);
+		void release ();
+		void winchReset ();
+		void cableSet ();
 		
-		private:
+	private:
 		Victor* releaseMotor;
 		Victor* winchMotor;
-		
+		DigitalInput* qrLimitSwitch;
+		DigitalInput* cataLimitSwitch;
 };
 #endif

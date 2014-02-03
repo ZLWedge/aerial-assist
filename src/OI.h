@@ -9,6 +9,7 @@ private:
 	Button* catchButton;
 	Button* chopsticksUpButton;
 	Button* chopsticksDownButton;
+	Button* throwButton;
 	double applyDeadZone(double,double);
 
 public:
