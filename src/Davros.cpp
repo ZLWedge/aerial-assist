@@ -3,11 +3,8 @@
 #include "Davros.h"
 #include "Robotmap.h"
 
-Davros::Davros(): gyro(new Gyro(GYRO_PORT)), 
-	encoderA (new Encoder(ENCODER_A_1, ENCODER_A_2, ENCODER_A_REV)), 
-	encoderB (new Encoder(ENCODER_B_1, ENCODER_B_2, ENCODER_B_REV)), 
-	encoderC (new Encoder(ENCODER_C_1, ENCODER_C_2, ENCODER_C_REV)), 
-	encoderD (new Encoder(ENCODER_D_1, ENCODER_D_2, ENCODER_D_REV)) {
+Davros::Davros(): gyro(new Gyro(GYRO_PORT))
+{
 }
 
 void Davros::RobotInit() {
@@ -23,15 +20,6 @@ void Davros::AutonomousInit() {
     //autonomousCommand->Start();
     gyro->Reset();
     
-    encoderA->Reset();
-    encoderB->Reset();
-    encoderC->Reset();
-    encoderD->Reset();
-    
-    encoderA->Start();
-    encoderB->Start();
-    encoderC->Start();
-    encoderD->Start();
 }
 
 void Davros::AutonomousPeriodic() {
@@ -46,24 +34,12 @@ void Davros::TeleopInit() {
     //autonomousCommand->Cancel();
     gyro->Reset();
     
-    encoderA->Reset();
-    encoderB->Reset();
-    encoderC->Reset();
-    encoderD->Reset();
-    
-    encoderA->Start();
-    encoderB->Start();
-    encoderC->Start();
-    encoderD->Start();
+
 }
 
 void Davros::TeleopPeriodic() {
     Scheduler::GetInstance()->Run();
     SmartDashboard::PutNumber("Gyro(deg)", gyro->GetAngle());
-    SmartDashboard::PutNumber("EncoderA(counts)", encoderA->Get());
-	SmartDashboard::PutNumber("EncoderB(counts)", encoderB->Get());
-	SmartDashboard::PutNumber("EncoderC(counts)", encoderC->Get());
-	SmartDashboard::PutNumber("EncoderD(counts)", encoderD->Get());
 	SmartDashboard::PutData("Chopsticks", CommandBase::chopsticks);
 }
 

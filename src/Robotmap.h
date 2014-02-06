@@ -64,5 +64,9 @@
  
 #define QR_LIMIT_SWITCH 9
 #define CATA_LIMIT_SWITCH 10
+
+#define KP 1.0
+#define KI 1.0
+#define KD 1.0
  
 #endif
