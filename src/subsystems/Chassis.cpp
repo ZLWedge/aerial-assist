@@ -3,6 +3,7 @@
 #include "Chassis.h"
 #include "../Robotmap.h"
 #include "../commands/MeccanumDrive.h"
+#include "../SpeedEncoder.h"
 
 Chassis::Chassis():Subsystem("Chassis"){
     driveMotorA = new Victor(MOTOR_A_PWM);
@@ -10,10 +11,10 @@ Chassis::Chassis():Subsystem("Chassis"){
     driveMotorC = new Victor(MOTOR_C_PWM);
     driveMotorD = new Victor(MOTOR_D_PWM);
     
-    encoderA = new Encoder(ENCODER_A_1, ENCODER_A_2, ENCODER_A_REV);
-	encoderB = new Encoder(ENCODER_B_1, ENCODER_B_2, ENCODER_B_REV); 
-	encoderC = new Encoder(ENCODER_C_1, ENCODER_C_2, ENCODER_C_REV); 
-	encoderD = new Encoder(ENCODER_D_1, ENCODER_D_2, ENCODER_D_REV);
+    encoderA = new SpeedEncoder(ENCODER_A_1, ENCODER_A_2, ENCODER_A_REV);
+	encoderB = new SpeedEncoder(ENCODER_B_1, ENCODER_B_2, ENCODER_B_REV); 
+	encoderC = new SpeedEncoder(ENCODER_C_1, ENCODER_C_2, ENCODER_C_REV); 
+	encoderD = new SpeedEncoder(ENCODER_D_1, ENCODER_D_2, ENCODER_D_REV);
 	
 	encoderA->Reset();
     encoderB->Reset();
@@ -25,10 +26,10 @@ Chassis::Chassis():Subsystem("Chassis"){
     encoderC->Start();
     encoderD->Start();
 	
-    pidA = new PIDController(KP, KI, KD, encoderA, driveMotorA);
-    pidB = new PIDController(KP, KI, KD, encoderB, driveMotorB);
-    pidC = new PIDController(KP, KI, KD, encoderC, driveMotorC);
-    pidD = new PIDController(KP, KI, KD, encoderD, driveMotorD);
+    pidA = new PIDController(KP, KI, KD, KFF, encoderA, driveMotorA);
+    pidB = new PIDController(KP, KI, KD, KFF, encoderB, driveMotorB);
+    pidC = new PIDController(KP, KI, KD, KFF, encoderC, driveMotorC);
+    pidD = new PIDController(KP, KI, KD, KFF, encoderD, driveMotorD);
     
 
 }
@@ -81,6 +82,10 @@ void Chassis::drive(double vX, double vY, double vZ, double throttle) {
 	SmartDashboard::PutNumber("EncoderB(counts)", encoderB->Get());
 	SmartDashboard::PutNumber("EncoderC(counts)", encoderC->Get());
 	SmartDashboard::PutNumber("EncoderD(counts)", encoderD->Get());
+	SmartDashboard::PutNumber("EncoderA(speed)", encoderA->GetRate());
+	SmartDashboard::PutNumber("EncoderB(speed)", encoderB->GetRate());
+	SmartDashboard::PutNumber("EncoderC(speed)", encoderC->GetRate());
+	SmartDashboard::PutNumber("EncoderD(speed)", encoderD->GetRate());
 
 }
 
@@ -88,4 +93,3 @@ void Chassis::InitDefaultCommand() {
     SetDefaultCommand(new MeccanumDrive());
 }
     
-

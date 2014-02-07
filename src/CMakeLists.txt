@@ -23,6 +23,7 @@ endmacro()
 add_sources(Davros.cpp
   CommandBase.cpp
   OI.cpp
+  SpeedEncoder.cpp
 )
 add_subdirectory(commands)
 add_subdirectory(subsystems)
