@@ -31,6 +31,11 @@ Chassis::Chassis():Subsystem("Chassis"){
     pidC = new PIDController(KP, KI, KD, KFF, encoderC, driveMotorC);
     pidD = new PIDController(KP, KI, KD, KFF, encoderD, driveMotorD);
     
+    pidA->Enable();
+    pidB->Enable();
+    pidC->Enable();
+    pidD->Enable();
+    
 
 }
 
@@ -66,12 +71,13 @@ void Chassis::drive(double vX, double vY, double vZ, double throttle) {
 		}
 	}
 	for (int i = 0; i < 4; ++i){
-		vMotor[i] = vMotor[i]/vmax*throttle; 
+		vMotor[i] = vMotor[i]/vmax*throttle*VMAX; //This is the set point in counts/sec
 	}
-	driveMotorA->Set(vMotor[0]);
-    driveMotorB->Set(vMotor[1]);
-    driveMotorC->Set(vMotor[2]);
-    driveMotorD->Set(vMotor[3]);
+	
+	pidA-> SetSetpoint(vMotor[0]);
+	pidB-> SetSetpoint(vMotor[1]);
+	pidC-> SetSetpoint(vMotor[2]);
+	pidD-> SetSetpoint(vMotor[3]);
     
     // Put the values onto the SmartDashboard
     SmartDashboard::PutNumber("Motor A", vMotor[0]);

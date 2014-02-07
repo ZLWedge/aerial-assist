@@ -44,10 +44,10 @@
 #define ENCODER_D_1 7
 #define ENCODER_D_2 8
 
-#define ENCODER_A_REV false 
-#define ENCODER_B_REV false 
-#define ENCODER_C_REV false 
-#define ENCODER_D_REV false
+#define ENCODER_A_REV true 
+#define ENCODER_B_REV true 
+#define ENCODER_C_REV true 
+#define ENCODER_D_REV true
 
 #define CHOPSTICK_MOTOR_PWM 5
 #define CHOPSTICKS_SPEED 0.5
@@ -66,8 +66,9 @@
 #define CATA_LIMIT_SWITCH 10
 
 #define KP 0.0
-#define KI 1.0
+#define KI 4.0e-4
 #define KD 0.0
-#define KFF 1.0
+#define VMAX 2300.0
+#define KFF 1.0/VMAX
  
 #endif
