@@ -5,7 +5,7 @@
 #include "../commands/MeccanumDrive.h"
 #include "../SpeedEncoder.h"
 
-Chassis::Chassis():Subsystem("Chassis"){
+Chassis::Chassis():Subsystem("Chassis"),gyro(new Gyro(GYRO_PORT)){
     driveMotorA = new Victor(MOTOR_A_PWM);
     driveMotorB = new Victor(MOTOR_B_PWM);
     driveMotorC = new Victor(MOTOR_C_PWM);
@@ -36,7 +36,9 @@ Chassis::Chassis():Subsystem("Chassis"){
     pidC->Enable();
     pidD->Enable();
     
-
+    //we are waiting for the gyro to stabilize
+    Wait(2.0);
+    gyro->Reset();
 }
 
 Chassis::~Chassis() {
@@ -54,10 +56,20 @@ Chassis::~Chassis() {
 	delete encoderB;
 	delete encoderC;
 	delete encoderD;
+	delete gyro;
 }
 
-void Chassis::drive(double vX, double vY, double vZ, double throttle) {
+void Chassis::drive(double vX, double vY, double vZ, double throttle, bool weBePimpin) {
 	double vMotor[4];
+	
+	//this maps the body co-ordinates to the absolute field co-ordinates
+	if(weBePimpin){
+		double heading = gyro->GetAngle()*3.14159/180.0;
+		double vXpimp = vX*cos(heading)+vY*sin(heading);
+		double vYpimp = -vX*sin(heading)+vY*cos(heading);
+		vX = vXpimp;
+		vY = vYpimp;
+	}
 	
 	vMotor[0] = vX - vY - vZ;
 	vMotor[1] = vX + vY - vZ;
@@ -74,16 +86,25 @@ void Chassis::drive(double vX, double vY, double vZ, double throttle) {
 		vMotor[i] = vMotor[i]/vmax*throttle*VMAX; //This is the set point in counts/sec
 	}
 	
+<<<<<<< HEAD
 	pidA-> SetSetpoint(vMotor[0]);
 	pidB-> SetSetpoint(vMotor[1]);
 	pidC-> SetSetpoint(vMotor[2]);
 	pidD-> SetSetpoint(vMotor[3]);
+=======
+	
+	driveMotorA->Set(vMotor[0]);
+    driveMotorB->Set(vMotor[1]);
+    driveMotorC->Set(vMotor[2]);
+    driveMotorD->Set(vMotor[3]);
+>>>>>>> re-created the pimp rolling code -Lucien
     
     // Put the values onto the SmartDashboard
     SmartDashboard::PutNumber("Motor A", vMotor[0]);
     SmartDashboard::PutNumber("Motor B", vMotor[1]);
     SmartDashboard::PutNumber("Motor C", vMotor[2]);
     SmartDashboard::PutNumber("Motor D", vMotor[3]);
+<<<<<<< HEAD
     SmartDashboard::PutNumber("EncoderA(counts)", encoderA->Get());
 	SmartDashboard::PutNumber("EncoderB(counts)", encoderB->Get());
 	SmartDashboard::PutNumber("EncoderC(counts)", encoderC->Get());
@@ -92,6 +113,9 @@ void Chassis::drive(double vX, double vY, double vZ, double throttle) {
 	SmartDashboard::PutNumber("EncoderB(speed)", encoderB->GetRate());
 	SmartDashboard::PutNumber("EncoderC(speed)", encoderC->GetRate());
 	SmartDashboard::PutNumber("EncoderD(speed)", encoderD->GetRate());
+=======
+    SmartDashboard::PutNumber("Gyro(deg)", gyro->GetAngle());
+>>>>>>> re-created the pimp rolling code -Lucien
 
 }
 
