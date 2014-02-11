@@ -46,8 +46,8 @@
 #define ENCODER_D_1 7
 #define ENCODER_D_2 8
 
-#define ENCODER_A_REV true 
-#define ENCODER_B_REV true 
+#define ENCODER_A_REV false 
+#define ENCODER_B_REV false 
 #define ENCODER_C_REV true 
 #define ENCODER_D_REV true
 
@@ -68,10 +68,11 @@
 #define RELEASE_RELOAD 0.2
 
 #define WINCH_MOTOR_PWM 7
-#define WINCH_SPEED 0.5
+#define WINCH_SPEED -0.5
  
-#define QR_LIMIT_SWITCH 9
-#define CATA_LIMIT_SWITCH 10
+#define QR_FIRING_LIMIT_SWITCH 9
+#define QR_PASSING_LIMIT_SWITCH 10
+#define CATA_LIMIT_SWITCH 11
 
 #define KP 0.0
 #define KI 4.0e-4

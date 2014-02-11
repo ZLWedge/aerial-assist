@@ -8,13 +8,19 @@ class Catapult: public Subsystem {
 		Catapult();
 		~Catapult();
 		void release ();
-		void winchReset ();
-		void cableSet ();
+		void passBall();
+		
 		
 	private:
 		Victor* releaseMotor;
 		Victor* winchMotor;
-		DigitalInput* qrLimitSwitch;
+		DigitalInput* qrFiringLimitSwitch;
+		DigitalInput* qrPassingLimitSwitch;
 		DigitalInput* cataLimitSwitch;
+		
+		void winchReset ();
+		void cableSet ();
+		void qrOpen ();
+		void qrClose ();
 };
 #endif

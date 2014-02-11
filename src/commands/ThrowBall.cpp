@@ -11,9 +11,7 @@ void ThrowBall::Initialize(){
 }
 
 void ThrowBall::Execute(){
-	catapult->release();
-	catapult->winchReset();
-	catapult->cableSet();
+	catapult->release();	
 }
 
 bool ThrowBall::IsFinished(){

@@ -6,4 +6,5 @@ add_sources(
   ThrowBall.cpp
   ChopsticksMoveUp.cpp
   ChopsticksMoveDown.cpp
+  PassBall.cpp
 )

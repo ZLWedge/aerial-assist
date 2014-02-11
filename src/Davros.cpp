@@ -39,10 +39,6 @@ void Davros::TeleopInit() {
 
 void Davros::TeleopPeriodic() {
     Scheduler::GetInstance()->Run();
-    SmartDashboard::PutNumber("EncoderA(counts)", encoderA->Get());
-	SmartDashboard::PutNumber("EncoderB(counts)", encoderB->Get());
-	SmartDashboard::PutNumber("EncoderC(counts)", encoderC->Get());
-	SmartDashboard::PutNumber("EncoderD(counts)", encoderD->Get());
 	SmartDashboard::PutData("Chopsticks", CommandBase::chopsticks);
 }
 
