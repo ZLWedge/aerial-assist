@@ -7,4 +7,8 @@ add_sources(
   ChopsticksMoveUp.cpp
   ChopsticksMoveDown.cpp
   PassBall.cpp
+  WinchPayout.cpp
+  WinchRetract.cpp
+  QuickReleaseOpen.cpp
+  QuickReleaseClose.cpp
 )
